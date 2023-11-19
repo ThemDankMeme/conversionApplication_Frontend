@@ -1,0 +1,23 @@
+
+<form [formGroup]="formGroup">
+  <mat-form-field>
+    <mat-label>Convert From</mat-label>
+    <mat-select formControlName="conversionType">
+      <mat-option value="imperial">Imperial</mat-option>
+      <mat-option value="metric">Metric</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Select</mat-label>
+      <div formArrayName="convertFrom">
+          <mat-select [formControlName]="field" *ngFor="let field of listItems" >
+            <mat-option value="{{field}}">{{field}}</mat-option>
+          </mat-select>
+      </div>
+    </mat-form-field>
+
+
+</form>
+
+

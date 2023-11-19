@@ -1,0 +1,30 @@
+{
+  "imperial": {
+    "length": [
+      {"from": "Inches", "to": "Centimeters"},
+      {"from": "Yards", "to": "Meters"},
+      {"from": "Miles", "to": "Kilometers"}
+    ],
+    "mass": [
+      {"from": "Ounces", "to": "Grams"},
+      {"from": "Pounds", "to": "Kilograms"}
+    ],
+    "temperature": [
+      {"from": "Fahrenheit", "to": "Celsius"}
+    ]
+  },
+  "metric": {
+    "length": [
+      {"from": "Centimeters", "to": "Inches"},
+      {"from": "Meters", "to": "Yards"},
+      {"from": "Kilometers", "to": "Miles"}
+    ],
+    "mass": [
+      {"from": "Grams", "to": "Ounces"},
+      {"from": "Kilograms", "to": "Pounds"}
+    ],
+    "temperature": [
+      {"from": "Celsius", "to": "Fahrenheit"}
+    ]
+  }
+}

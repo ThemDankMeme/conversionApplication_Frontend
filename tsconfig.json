@@ -9,19 +9,64 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": true,
+    "noImplicitAny": false,
     "sourceMap": true,
     "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "resolveJsonModule": true,
+    "strictNullChecks": false,
+    "esModuleInterop": true,
     "target": "ES2022",
-    "module": "ES2022",
+    "module": "ESNext",
     "useDefineForClassFields": false,
+    "allowSyntheticDefaultImports": true,
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "baseUrl": "./src",
+    "paths": {
+      "": [
+        "node_modules/",
+        "src/types/.d.ts"
+      ],
+      "~/components/": [
+        "app/shared/components/"
+      ],
+      "~/layouts/": [
+        "app/shared/layouts/"
+      ],
+      "~/modules/": [
+        "app/shared/components/"
+      ],
+      "~/templates/": [
+        "app/shared/templates/"
+      ],
+      "~/services/": [
+        "app/shared/services/"
+      ],
+      "~/interfaces/": [
+        "app/shared/interfaces/"
+      ],
+      "~/validators/": [
+        "app/shared/validators/"
+      ],
+      "~/classes/": [
+        "app/shared/classes/"
+      ],
+      "~/pipes/": [
+        "app/shared/pipes/"
+      ],
+      "~/guards/": [
+        "app/shared/guards/"
+      ],
+      "~/assets/": [
+        "assets/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
