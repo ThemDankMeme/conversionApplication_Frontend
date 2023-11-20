@@ -1,16 +1,32 @@
-<form [formGroup]="formGroup">
+<form (ngSubmit)="formSubmit(formGroup)" [formGroup]="formGroup">
   <mat-form-field>
-    <mat-label>Convert From</mat-label>
+    <mat-label>Converting Type</mat-label>
     <mat-select formControlName="conversionType">
-      <mat-option value="imperial">Imperial</mat-option>
-      <mat-option value="metric">Metric</mat-option>
+      <mat-option value="">Select Type</mat-option>
+      <mat-option  *ngFor="let type of conversionTypes" value="{{type}}">{{type}}</mat-option>
     </mat-select>
+    <mat-error *ngIf="formGroup.get('conversionType').hasError('required')">*Select Type</mat-error>
   </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Select</mat-label>
-      <mat-select formControlName="convertFrom" >
-        <mat-option *ngFor="let fromUnit of listItems | keyvalue" value="{{fromUnit.value}}">{{fromUnit.value}}</mat-option>
+  <div>
+    <mat-form-field>
+      <mat-label>Unit From</mat-label>
+        <mat-select formControlName="convertFrom" >
+          <mat-option *ngFor="let unit of listItems" value="{{unit}}">{{unit}}</mat-option>
+        </mat-select>
+      <mat-error *ngIf="formGroup.get('convertFrom').hasError('required')">*Select Unit</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Unit To</mat-label>
+      <mat-select formControlName="convertTo" >
+        <mat-option *ngFor="let unit of listItems" value="{{unit}}">{{unit}}</mat-option>
       </mat-select>
+      <mat-error *ngIf="formGroup.get('convertTo').hasError('required')">*Select Unit</mat-error>
+    </mat-form-field>
+  </div>
+  <mat-form-field >
+    <input type="number" matInput formControlName="convertFromValue">
+    <mat-error *ngIf="formGroup.get('convertFromValue').hasError('required')">Provide Value</mat-error>
   </mat-form-field>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid">Calculate</button>
 </form>
+<p class="result">Converted Value: <span *ngIf="convertedResult"> {{convertedResult}}</span> </p>
